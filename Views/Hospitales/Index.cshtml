@@ -1,0 +1,23 @@
+﻿@model List<Hospital>
+
+<a asp-action="Create" asp-controller="Hospitales">Create</a>
+<h1>Tabla Hospitales</h1>
+<table class="table table-bordered table-striped table-primary">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Direccion</th>
+            <th>Telf</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Hospital hospital in Model){
+            <tr>
+                <td>@hospital.Nombre</td>
+                <td>@hospital.Direccion</td>
+                <td>@hospital.Telefono</td>
+                <td>@Html.ActionLink("Details", "Details", "Hospitales", new{ id = hospital.IdHospital })</td>
+            </tr>
+        }
+    </tbody>
+</table>

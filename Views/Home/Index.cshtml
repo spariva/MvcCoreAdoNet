@@ -1,0 +1,22 @@
+﻿<h1 id="mensajevista">Home index</h1>
+<button id="boton" class="btn btn-outline-dark">Click me</button>
+
+@section styles{
+    <style>
+        #mensaje {
+            color: blue;
+        }
+    </style>
+}
+
+@section imagenhome{
+    <img src="~/images/imagen1.jfif"/>
+}
+
+<script>
+    $(document).ready(function () {
+        $("#boton").click(function () {
+            $("#mensajevista").text("Boton index");
+        });
+    }); 
+</script>
