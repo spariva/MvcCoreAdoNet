@@ -87,5 +87,33 @@ namespace MvcCoreAdoNet.Repositories
             this.cn.Close();
             this.com.Parameters.Clear();
         }
+
+        public void UpdateHospital(int idHospital, string nombre, string direccion, string telefono, int camas)
+        {
+            string sql = "update hospital set NOMBRE=@nombre, DIRECCION=@direccion, TELEFONO=@telefono, NUM_CAMA=@camas where HOSPITAL_COD=@idhospital";
+            this.com.Parameters.AddWithValue("@idhospital", idHospital);
+            this.com.Parameters.AddWithValue("@nombre", nombre);
+            this.com.Parameters.AddWithValue("@direccion", direccion);
+            this.com.Parameters.AddWithValue("@telefono", telefono);
+            this.com.Parameters.AddWithValue("@camas", camas);
+            this.com.CommandType = System.Data.CommandType.Text;
+            this.com.CommandText = sql;
+            this.cn.Open();
+            this.com.ExecuteNonQuery();
+            this.cn.Close();
+            this.com.Parameters.Clear();
+        }
+
+        public void DeleteHospital(int idHospital)
+        {
+            string sql = "delete from hospital where HOSPITAL_COD=@idhospital";
+            this.com.Parameters.AddWithValue("@idhospital", idHospital);
+            this.com.CommandType = System.Data.CommandType.Text;
+            this.com.CommandText = sql;
+            this.cn.Open();
+            this.com.ExecuteNonQuery();
+            this.cn.Close();
+            this.com.Parameters.Clear();
+        }
     }
 }

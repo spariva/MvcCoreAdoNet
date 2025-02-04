@@ -16,7 +16,10 @@
                 <td>@hospital.Nombre</td>
                 <td>@hospital.Direccion</td>
                 <td>@hospital.Telefono</td>
-                <td>@Html.ActionLink("Details", "Details", "Hospitales", new{ id = hospital.IdHospital })</td>
+                <td>@Html.ActionLink("Details", "Details", "Hospitales", new{ id = @hospital.IdHospital })</td>
+                <td>@Html.ActionLink("Modificar", "Update", "Hospitales", new { id = @hospital.IdHospital })</td>
+                <td><a asp-action="Delete" asp-controller="Hospitales" asp-route-id="@hospital.IdHospital" class="btn btn-outline-danger">Delete</a></td>
+                <td>@Html.ActionLink("Eliminar", "Delete", "Hospitales", new { id = @hospital.IdHospital })</td>
             </tr>
         }
     </tbody>
